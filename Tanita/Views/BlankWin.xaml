@@ -1,0 +1,14 @@
+﻿<Window x:Class="Tanita.Views.BlankWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="已归档活动" Height="570" Width="900" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Canvas>
+            <TextBlock Text="暂无已归档活动" Foreground="#FFCCCCCC" FontSize="22" Canvas.Left="355" Canvas.Top="120"></TextBlock>
+            <Image Source="../Resources/暂无结果.png" Width="203" Height="208" Canvas.Left="330" Canvas.Top="170"></Image>
+        </Canvas>
+    </Grid>
+</Window>

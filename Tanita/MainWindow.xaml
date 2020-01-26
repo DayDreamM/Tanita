@@ -1,0 +1,69 @@
+﻿<Controls:MetroWindow x:Class="Tanita.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                      xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                      Title="身体成分分析仪-管理软件" WindowStartupLocation="CenterScreen"  Background="#FF1196A3" WindowState="Maximized">
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="welcomeBtn"/>
+            <Button MouseDoubleClick="Button_MouseDoubleClick">
+                <StackPanel Orientation="Horizontal">
+                    <iconPacks:PackIconMaterial Kind="LanConnect" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    <TextBlock Margin="4 0 0 0" VerticalAlignment="Center" Text="设备未连接,双击连接"  x:Name="connStute"/>
+                </StackPanel>
+            </Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="144*"/>
+            <ColumnDefinition Width="313*"/>
+            <ColumnDefinition Width="46*"/>
+            <ColumnDefinition Width="111*"/>
+            <ColumnDefinition Width="247*"/>
+            <ColumnDefinition Width="488*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="6" Background="White" Foreground="#FF1196A3">
+                <MenuItem Header="菜单" Background="White" FontSize="16">
+                    <MenuItem Header="检测人员">
+                        <MenuItem Header="数校同步"  x:Name="sync_btn" Click="Sync_btn_Click"></MenuItem>
+                    </MenuItem>
+                    <MenuItem Header="退出" Click="MenuItem_Click_3"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="设置" Background="White" FontSize="16">
+                    <MenuItem x:Name="SystemSetting" Header="系统设置" Click="SystemSetting_Click"></MenuItem>
+                    <MenuItem Header="密码设置">
+                        <MenuItem x:Name="editPassword" Header="修改密码" Click="EditPassword_Click" ></MenuItem>
+                    </MenuItem>
+                <MenuItem Header="检测意见设置" x:Name="commoentSettingBtn" Click="CommoentSettingBtn_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="帮助" Background="White" FontSize="16">
+                    <MenuItem Header="关于本软件" x:Name="about" Click="About_Click"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="|" Background="White" Foreground="Gray" IsEnabled="False"/>
+                <MenuItem x:Name="ConnectBtn" Header="设备连接" Background="White" Click="ConnectBtn_Click" VerticalAlignment="Center" FontSize="16">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/设备连接.png" Width="15"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="CheckActivityBtn" Header="测试活动" Background="White" VerticalAlignment="Center" Click="CheckActivityBtn_Click" FontSize="16">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/测试活动.png" Width="15"></Image>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="StudentsBtn" Header="被检测人" Background="White" VerticalAlignment="Center" FontSize="16">
+                    <MenuItem.Icon>
+                        <Image Source="Resources/被检测人.png" Width="15"></Image>
+                    </MenuItem.Icon>
+                    <MenuItem Header="教师" x:Name="teacherPageBtn" Click="TeacherPage_Click"></MenuItem>
+                    <MenuItem Header="学生" Click="StudentsBtn_Click" ></MenuItem>
+                </MenuItem>
+            </Menu>
+            <ContentControl x:Name="ContentControl" Margin="0,3,0,5" Grid.ColumnSpan="6" Grid.Row="1"/>
+    </Grid>
+</Controls:MetroWindow>

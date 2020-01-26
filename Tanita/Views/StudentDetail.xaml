@@ -1,0 +1,104 @@
+﻿<Controls:MetroWindow x:Class="Tanita.Views.StudentDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        Title="体脂检测详情" Height="450" Width="900"  WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="200"></Setter>
+            <Setter Property="Height" Value="23"></Setter>
+            <Setter Property="Margin" Value="10,5,50,5"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="12"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="Margin" Value="5,5,50,0"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid Margin="10,15,10,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45*"></RowDefinition>
+            <RowDefinition Height="55*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0" Orientation="Horizontal">
+                    <Separator Width="20"></Separator>
+                    <Label  FontSize="16" Width="73" Margin="0">基本信息</Label>
+                    <Separator Width="800"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label >姓名:</Label>
+                    <TextBox x:Name="name" ></TextBox>
+                    <Label>性别:</Label>
+                    <TextBox x:Name="sex"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Label>出生日期:</Label>
+                    <TextBox x:Name="birthday"></TextBox>
+                    <Label >检测日期:</Label>
+                    <TextBox x:Name="date"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <Label>年龄(岁):</Label>
+                    <TextBox x:Name="age"></TextBox>
+                    <Label>身高(cm):</Label>
+                    <TextBox x:Name="height"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <Label>体重(kg):</Label>
+                    <TextBox x:Name="weight"></TextBox>
+                    <Label>着衣重量(kg):</Label>
+                    <TextBox x:Name="Pt"></TextBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal">
+                    <Separator Width="20" HorizontalAlignment="Left"></Separator>
+                    <Label Grid.Row="0"  FontSize="16" Width="75" Margin="0">检测信息</Label>
+                    <Separator Width="800"/>
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal">
+                    <Label>体脂肪率(%):</Label>
+                    <TextBox x:Name="FW"></TextBox>
+                    <Label>体脂肪量(kg):</Label>
+                    <TextBox x:Name="fW"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Label >去脂体重(kg):</Label>
+                    <TextBox x:Name="MW"></TextBox>
+                    <Label >体水分量(kg):</Label>
+                    <TextBox x:Name="wW" ></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="3" Orientation="Horizontal">
+                    <Label >BMI:</Label>
+                    <TextBox x:Name="BMI" ></TextBox>
+                    <Label>肌肉量(kg):</Label>
+                    <TextBox x:Name="mW"></TextBox>
+                </StackPanel>
+                <StackPanel Grid.Row="4" Orientation="Horizontal">
+                    <Label >基础代谢率(kcal):</Label>
+                    <TextBox x:Name="rB"></TextBox>
+                    <Label>骨量(kg):</Label>
+                    <TextBox x:Name="bW"></TextBox>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Controls:MetroWindow>

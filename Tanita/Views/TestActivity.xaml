@@ -1,0 +1,66 @@
+﻿<Page x:Class="Tanita.windows.TestActivity"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="测试活动"  Background="White">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="150"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="65"></RowDefinition>
+            <RowDefinition Height="45"></RowDefinition>
+            <RowDefinition Height="110"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="55"></RowDefinition>
+            <RowDefinition Height="10"></RowDefinition>
+        </Grid.RowDefinitions>
+        <TextBlock x:Name="ActivityTitle" HorizontalAlignment="Center" FontSize="26" Margin="0,15,0,0" Grid.Column="0" Grid.Row="0"></TextBlock>
+        <Button x:Name="back_btn" Grid.Column="1" Grid.Row="0" Height="35" Width="60" Margin="0,5,0,0" Click="Back_btn_Click" Background="#FF1196A3" Foreground="White" FontSize="12" FontFamily="Microsoft YaHei">返回</Button>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal" Background="#FF1196A3" Margin="15,0,15,10">
+            <Image Source="../Resources/warn.png" Margin="15,0,0,0"></Image>
+            <TextBlock VerticalAlignment="Center" Background="#FF1196A3" Foreground="White" FontSize="18" Margin="20,0,20,0">提示：列表右键可以查看已体测学生的体测数据以及更多功能</TextBlock>
+        </StackPanel>
+        <Border Grid.Row="2"  Grid.ColumnSpan="2" BorderThickness="1"  BorderBrush="#FF1196A3" Margin="15,0,15,0" >
+            <StackPanel x:Name="menu_panel" >
+                <TextBlock   Margin="10,0,0,0" FontFamily="Segoe UI Semibold" FontSize="18" Foreground="#FF1196A3">测试对象:</TextBlock>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Margin="25,5,0,0" VerticalAlignment="Center" Width="35" HorizontalAlignment="Left" FontSize="15">年级</TextBlock>
+                    <StackPanel x:Name="gradepanel" Margin="0,5,0,0" Orientation="Horizontal">
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Margin="0,5,0,0" Orientation="Horizontal">
+                    <TextBlock Margin="25,0,0,0" VerticalAlignment="Center" FontSize="15" Width="35">班级</TextBlock>
+                    <StackPanel x:Name="panel" Orientation="Horizontal"></StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border Grid.Row="3" Grid.ColumnSpan="2" BorderThickness="1"  BorderBrush="#FF1196A3" Margin="15,20,15,0" Padding="5">
+            <DataGrid x:Name="StdDataGrid"  Margin="25,0,10,0" GridLinesVisibility="All"  IsReadOnly="True" AutoGenerateColumns="False"  VirtualizingPanel.IsVirtualizing="True" >
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="学号" Width="1*"  Binding="{Binding studentId}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="姓名" Width="1*" Binding="{Binding studentName}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="性别" Width="1*" Binding="{Binding sex_string}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="年龄" Width="1*" Binding="{Binding age}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="检测状态" Width="1*" Binding="{Binding isCheck}"></DataGridTextColumn>
+                </DataGrid.Columns>
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem x:Name="CheckInfo" Header="查看检测结果" Click="CheckInfo_Click"></MenuItem>
+                        <MenuItem Header="打印体成分报告" Click="PrintCheck_Click"></MenuItem>
+                        <MenuItem Header="修改检测结果" Click="MenuItem_Click_1"></MenuItem>
+                        <MenuItem Header="删除检测结果" Click="MenuItem_Click"></MenuItem>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
+            </DataGrid>
+        </Border>
+        <StackPanel  Orientation="Horizontal" Margin="15,10,15,0" Grid.Row="4">
+            <Button x:Name="test_btn" Width="140" Height="40" Margin="10,0,15,0" Click="Test_btn_Click"  Background="#FF1196A3" Foreground="White" FontFamily="Microsoft YaHei"  FontSize="12">开始检测</Button>
+            <Button x:Name="batchInputHeight" Width="140" Height="40" Margin="0,0,15,0" Click="BatchInputHeight_Click" Background="#1196A3" Foreground="White"  FontFamily="Microsoft YaHei" FontSize="12">批量导入身高</Button>
+            <Button x:Name="batchOutputReport" Width="140" Height="40" Margin="0,0,15,0" Click="BatchOutputReport_Click" Background="#1196A3" Foreground="White"  FontFamily="Microsoft YaHei" FontSize="12">批量打印检测报告</Button>
+            <Button x:Name="batchSaveReport" Width="140" Height="40" Margin="0,0,15,0" Click="BatchSaveReport_Click" Background="#1196A3" Foreground="White"  FontFamily="Microsoft YaHei" FontSize="12">批量导出检测报告</Button>
+            <Button Width="140" Height="40" Margin="0,0,15,0" Background="#1196A3" Foreground="White" FontFamily="Microsoft YaHei"  FontSize="12" x:Name="UploadBtn" Click="UploadBtn_Click">批量上传检测结果</Button>
+            <Button Width="140" Height="40" Background="#FF8000" Foreground="White" FontFamily="Microsoft YaHei"  FontSize="12" x:Name="DownLorddBtn" Click="DownLorddBtn_Click">下载批量导入模板</Button>
+        </StackPanel>
+    </Grid>
+</Page>

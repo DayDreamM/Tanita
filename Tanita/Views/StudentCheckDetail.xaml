@@ -1,0 +1,48 @@
+﻿<Controls:MetroWindow
+    xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Tanita.Views.StudentCheckDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="体测数据" Height="400" Width="700" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal">
+            <Separator Width="20"></Separator>
+            <Label  FontSize="16" Width="110" Margin="0" Foreground="#FF1196A3">体测历史数据</Label>
+            <Separator Width="560"/>
+        </StackPanel>
+        <Border Grid.Row="1"   BorderBrush="#FFE5E5E5" BorderThickness="2"  Margin="10,5,10,25">
+        <StackPanel>
+                <TextBlock Visibility="Collapsed" x:Name="display" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">该学生暂无体测数据</TextBlock>
+                <DataGrid x:Name="CheckDataGrid" Margin="15,10,15,0" AutoGenerateColumns="False"   GridLinesVisibility="All" CanUserAddRows="False" IsReadOnly="True">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="检测日期" Width="150" Binding="{Binding checkDate}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="学生ID" Width="120" Binding="{Binding studentId}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="姓名"  Width="120" Binding="{Binding  studentName}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="出生日期" Width="150" Binding="{Binding birthday}"></DataGridTextColumn>
+                        <DataGridTextColumn Header="年龄(岁)"  Width="120"  Binding="{Binding AG}"></DataGridTextColumn>
+                    <DataGridTextColumn Header="身高(cm)" Binding="{Binding Hm}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="体重(kg)" Binding="{Binding Wk}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="脂肪率(%)" Binding="{Binding FW}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="脂肪量(kg)" Binding="{Binding fW}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="除脂体重(kg)" Binding="{Binding MW}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="骨量(kg)" Binding="{Binding bW}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="体水分含量(kg)" Binding="{Binding wW}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="BMI" Binding="{Binding MI}" Width="120"></DataGridTextColumn>
+                    <DataGridTextColumn Header="基础代谢率(Kcal)" Binding="{Binding rB}" Width="130"></DataGridTextColumn>
+                </DataGrid.Columns>
+                    <DataGrid.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="打印"  x:Name="PrintBtn" Click="PrintBtn_Click"></MenuItem>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                </DataGrid>
+        </StackPanel>
+        </Border>
+    </Grid>
+</Controls:MetroWindow>
